@@ -1,8 +1,12 @@
 import React from "react";
-import Banner from "../Banner/Banner";
+import ProductCard from "../ProductCard/ProductCard";
 
 const Home = () => {
-  return <Banner></Banner>;
+  return (
+    <div>
+      <ProductCard></ProductCard>
+    </div>
+  );
 };
 
 export default Home;

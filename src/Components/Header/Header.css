@@ -1,13 +1,13 @@
 .navbar {
-  background-color: rgba(220, 20, 60, 0.651);
+  background-color: mediumaquamarine;
 }
 .nav-link {
   font-weight: 700;
-  color: aquamarine;
+  color: black;
 }
 .nav-link:hover {
-  color: rgb(23, 240, 167);
+  color: white;
 }
 .nav-link:focus {
-  color: rgb(23, 240, 167);
+  color: white;
 }
