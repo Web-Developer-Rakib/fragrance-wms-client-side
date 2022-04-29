@@ -1,0 +1,7 @@
+.manage-items {
+  margin-top: 70px;
+}
+.manage-items-head {
+  display: flex;
+  justify-content: space-between;
+}
