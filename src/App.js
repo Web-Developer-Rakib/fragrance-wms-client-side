@@ -1,12 +1,12 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
-import Registration from "./Components/Registration/Registration";
+import UpdateProduct from "./Components/UpdateProduct/UpdateProduct";
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Registration></Registration>
+      <UpdateProduct></UpdateProduct>
     </div>
   );
 }
