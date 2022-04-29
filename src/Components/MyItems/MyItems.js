@@ -1,21 +1,18 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
-import "./ManageItems.css";
+import "./MyItems.css";
 
-const ManageItems = () => {
+const MyItems = () => {
   return (
-    <div className="manage-items container">
-      <div className="manage-items-head">
-        <h3>Manage Items</h3>
-        <Button>Add item</Button>
-      </div>
+    <div className="my-items container">
+      <h3>My Items</h3>
       <Table className="mt-5" striped bordered hover>
         <thead>
           <tr>
             <th>Product name</th>
             <th>Supplier name</th>
             <th>Quantity</th>
-            <th>Supplier email</th>
+            <th>Description</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -37,4 +34,4 @@ const ManageItems = () => {
   );
 };
 
-export default ManageItems;
+export default MyItems;
