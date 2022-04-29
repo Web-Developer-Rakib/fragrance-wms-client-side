@@ -18,6 +18,9 @@ const ProductCard = () => {
         <p>
           <b>Supplier name:</b> Rakibul Hasan
         </p>
+        <h4>
+          <b>Price:</b> 150$
+        </h4>
         <p>
           <b>Short description:</b> Master your world and achieve your goals
           when you wear Eros by Versace. Introduced in 2012.

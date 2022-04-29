@@ -9,7 +9,7 @@
 }
 .add-item-form {
   background-color: rgba(102, 205, 171, 0.432);
-  height: 450px;
+  height: 500px;
   width: 600px;
   display: flex;
   flex-direction: column;

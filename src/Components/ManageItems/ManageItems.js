@@ -14,6 +14,7 @@ const ManageItems = () => {
           <tr>
             <th>Product name</th>
             <th>Supplier name</th>
+            <th>Price</th>
             <th>Quantity</th>
             <th>Supplier email</th>
             <th>Action</th>
@@ -23,6 +24,7 @@ const ManageItems = () => {
           <tr>
             <td>1</td>
             <td>Mark</td>
+            <td>Otto</td>
             <td>Otto</td>
             <td>Otto</td>
             <td className="d-flex justify-content-around">

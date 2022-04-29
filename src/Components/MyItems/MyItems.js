@@ -12,7 +12,7 @@ const MyItems = () => {
             <th>Product name</th>
             <th>Supplier name</th>
             <th>Quantity</th>
-            <th>Description</th>
+            <th>Price</th>
             <th>Action</th>
           </tr>
         </thead>

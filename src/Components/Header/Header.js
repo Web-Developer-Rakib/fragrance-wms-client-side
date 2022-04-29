@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -10,13 +11,27 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Manage Items</Nav.Link>
-            <Nav.Link href="#1">Add Item</Nav.Link>
-            <Nav.Link href="#">My Items</Nav.Link>
+            <Nav.Link as={NavLink} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="manage-items">
+              Manage Items
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="add-item">
+              Add Item
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="my-items">
+              My Items
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="blogs">
+              Blogs
+            </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link as={NavLink} to="login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="register">
               Register
             </Nav.Link>
           </Nav>

@@ -14,7 +14,7 @@
 
 .card-text {
   background-color: rgba(127, 255, 212, 0.411);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
   position: absolute;
   height: 350px;
   width: 365px;

@@ -1,0 +1,11 @@
+.manage-items-btn {
+  border: none;
+  background-color: mediumaquamarine;
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: 00.5s ease;
+}
+.manage-items-btn:hover {
+  background-color: aqua;
+}

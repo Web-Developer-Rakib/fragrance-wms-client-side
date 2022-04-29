@@ -12,6 +12,8 @@ const AddItem = () => {
         <br />
         <input type="text" placeholder="Enter the peoduct name" />
         <br />
+        <input type="text" placeholder="Enter the price" />
+        <br />
         <textarea type="text" placeholder="Enter products description" />
         <br />
         <input type="text" placeholder="Enter the quantity" />
