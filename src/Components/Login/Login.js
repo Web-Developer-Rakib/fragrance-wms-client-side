@@ -11,6 +11,13 @@ const Login = () => {
         <br />
         <input type="password" placeholder="Enter your password" />
         <br />
+        <b>
+          New here? <a href="a">Register now</a>
+        </b>
+        <b>
+          Forgot password? <a href="a">Reset now</a>
+        </b>
+        <br />
         <button type="submit" className="login-btn">
           LOGIN
         </button>

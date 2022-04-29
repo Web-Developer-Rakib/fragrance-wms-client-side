@@ -1,12 +1,12 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
-import Login from "./Components/Login/Login";
+import Registration from "./Components/Registration/Registration";
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Login></Login>
+      <Registration></Registration>
     </div>
   );
 }

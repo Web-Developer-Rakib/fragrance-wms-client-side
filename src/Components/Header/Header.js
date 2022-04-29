@@ -4,7 +4,7 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" variant="secondery">
+    <Navbar collapseOnSelect expand="lg" variant="light" className="fixed-top">
       <Container>
         <Navbar.Brand href="#home">Fragrance WMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
