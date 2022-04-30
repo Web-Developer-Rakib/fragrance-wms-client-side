@@ -4,7 +4,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase_init";
 import useFirebase from "../../Hooks/useFirebase";
 import GoogleImg from "../../Images/google.jpg";
@@ -17,39 +18,44 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [checked, setChecked] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
+  const [errorM, setErrorM] = useState("");
 
   // Register function
   const handleRegistration = () => {
     if (password !== confirmPassword) {
-      setErrMsg("Password did not macthed!");
-    }
-    if (
+      toast.warn("Password did not macthed.");
+    } else if (
       name === "" ||
       email === "" ||
       password === "" ||
       confirmPassword === ""
     ) {
-      setErrMsg("Please fill up all fields.");
+      toast.warn("Please fill up all fields.");
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          updateUserProfile();
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          });
           sendEmailVerification(auth.currentUser);
           const user = userCredential.user;
           setUserInfo(user);
+          navigate("/thank-you");
         })
         .catch((error) => {
           const errorMessage = error.message;
-          setErrMsg(errorMessage);
+          setErrorM(errorMessage);
+          if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
+            toast.error("This email is already in use.");
+          }
+          if (
+            errorMessage === "Firebase: Error (auth/network-request-failed)."
+          ) {
+            toast.error("Please check your internet connection.");
+          }
         });
     }
-  };
-  // Update user profile
-  const updateUserProfile = () => {
-    updateProfile(auth.currentUser, {
-      displayName: name,
-    });
   };
 
   return (
@@ -122,7 +128,6 @@ const Registration = () => {
             REGISTER WITH GOOGLE
           </button>
         )}
-        <h3>{errMsg}</h3>
       </div>
     </div>
   );
