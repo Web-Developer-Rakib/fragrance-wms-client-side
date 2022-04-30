@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Blogs from "./Blogs/Blogs";
 import AddItem from "./Components/AddItem/AddItem";
@@ -9,6 +10,7 @@ import ManageItems from "./Components/ManageItems/ManageItems";
 import MyItems from "./Components/MyItems/MyItems";
 import NotFound from "./Components/NotFound/NotFound";
 import Registration from "./Components/Registration/Registration";
+import ThankYou from "./Components/ThankYou/ThankYou";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="login" element={<Login></Login>}></Route>
         <Route path="register" element={<Registration></Registration>}></Route>
         <Route path="blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="thank-you" element={<ThankYou></ThankYou>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

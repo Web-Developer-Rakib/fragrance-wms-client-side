@@ -1,39 +1,129 @@
-import React from "react";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import auth from "../../firebase_init";
+import useFirebase from "../../Hooks/useFirebase";
 import GoogleImg from "../../Images/google.jpg";
 import "./Registration.css";
 
 const Registration = () => {
+  const { setUserInfo, handleGoogleSigup } = useFirebase();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+
+  // Register function
+  const handleRegistration = () => {
+    if (password !== confirmPassword) {
+      setErrMsg("Password did not macthed!");
+    }
+    if (
+      name === "" ||
+      email === "" ||
+      password === "" ||
+      confirmPassword === ""
+    ) {
+      setErrMsg("Please fill up all fields.");
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          updateUserProfile();
+          sendEmailVerification(auth.currentUser);
+          const user = userCredential.user;
+          setUserInfo(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          setErrMsg(errorMessage);
+        });
+    }
+  };
+  // Update user profile
+  const updateUserProfile = () => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+  };
+
   return (
     <div className="register-page">
-      <form className="register-form">
+      <div className="register-form">
         <h3>REGISTER</h3>
         <br />
-        <input type="text" placeholder="Enter your name" />
+        <input
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Enter your name"
+          required
+        />
         <br />
-        <input type="email" placeholder="Enter your email" />
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Enter your email"
+          required
+        />
         <br />
-        <input type="password" placeholder="Enter your password" />
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Enter your password"
+          required
+        />
         <br />
-        <input type="password" placeholder="Confirm your password" />
+        <input
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          type="password"
+          placeholder="Confirm your password"
+          required
+        />
         <br />
         <b>
-          Already have an account? <a href="a">Login now</a>
+          Already have an account? <Link to="/login">Login now</Link>
         </b>
         <br />
         <div className="checkbox">
-          <input type="checkbox" id="check-box" className="check-box" />
+          <input
+            onClick={(e) => setChecked(e.target.checked)}
+            type="checkbox"
+            id="check-box"
+            className="check-box"
+          />
           <label htmlFor="check-box">Accept T&C</label>
         </div>
         <br />
-        <button type="submit" className="register-btn">
-          REGISTER
-        </button>
+        {checked ? (
+          <button
+            onClick={handleRegistration}
+            type="submit"
+            className="register-btn"
+          >
+            REGISTER
+          </button>
+        ) : (
+          <button className="register-btn btn-off">REGISTER</button>
+        )}
         <br />
-        <button type="submit" className="register-btn">
-          <img src={GoogleImg} alt="" />
-          REGISTER WITH GOOGLE
-        </button>
-      </form>
+        {checked ? (
+          <button onClick={handleGoogleSigup} className="register-btn">
+            <img src={GoogleImg} alt="" />
+            REGISTER WITH GOOGLE
+          </button>
+        ) : (
+          <button className="register-btn btn-off">
+            <img src={GoogleImg} alt="" />
+            REGISTER WITH GOOGLE
+          </button>
+        )}
+        <h3>{errMsg}</h3>
+      </div>
     </div>
   );
 };

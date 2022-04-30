@@ -15,13 +15,12 @@ const Banner = () => {
           <p>
             The Alfred Ritchy fragrance collection, recently released in France,
             builds on the slogan "How wonderful it is when adults believe in
-            magic."{" "}
+            magic.{" "}
           </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100" src={CaroImg2} alt="Second slide" />
-
         <Carousel.Caption>
           <h3>Scratchy, Vegetal Freshness</h3>
           <p>

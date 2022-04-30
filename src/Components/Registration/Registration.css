@@ -59,3 +59,6 @@ input:focus {
 label {
   font-weight: 700;
 }
+.btn-off {
+  filter: grayscale(80%);
+}

@@ -1,9 +1,24 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase_init";
+import useFirebase from "../../Hooks/useFirebase";
 import "./Header.css";
 
 const Header = () => {
+  const { userInfo } = useFirebase();
+  console.log(userInfo);
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Signout successful.");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
   return (
     <Navbar collapseOnSelect expand="lg" variant="light" className="fixed-top">
       <Container>
@@ -28,15 +43,24 @@ const Header = () => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link as={NavLink} to="login">
-              Login
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="register">
-              Register
-            </Nav.Link>
+            {userInfo ? (
+              <Nav>
+                <Nav.Link onClick={handleSignOut}>Signout</Nav.Link>
+              </Nav>
+            ) : (
+              <Nav>
+                <Nav.Link as={NavLink} to="login">
+                  Login
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="register">
+                  Register
+                </Nav.Link>
+              </Nav>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <ToastContainer />
     </Navbar>
   );
 };

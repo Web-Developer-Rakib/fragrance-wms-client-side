@@ -1,0 +1,16 @@
+.thank-you {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../Images/thank-you-page.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.thank-you-msg {
+  background-color: rgba(102, 205, 171, 0.432);
+  backdrop-filter: blur(30px);
+  height: 300px;
+  width: 400px;
+  padding: 20px;
+  font-weight: 700;
+}
