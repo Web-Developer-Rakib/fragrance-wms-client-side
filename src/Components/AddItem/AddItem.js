@@ -1,8 +1,10 @@
 import React from "react";
 import { toast } from "react-toastify";
+import useFirebase from "../../Hooks/useFirebase";
 import "./AddItem.css";
 
 const AddItem = () => {
+  const { userInfo } = useFirebase();
   const addItem = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -56,11 +58,16 @@ const AddItem = () => {
         <h3>ADD ITEM</h3>
         <input
           type="text"
-          value={"ggmail@gmail.com"}
+          value={userInfo?.email}
           name="email"
           className="d-none"
         />
-        <input type="text" name="name" value={"name"} className="d-none" />
+        <input
+          type="text"
+          name="name"
+          value={userInfo?.displayName}
+          className="d-none"
+        />
         <br />
         <input
           type="text"

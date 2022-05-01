@@ -30,15 +30,19 @@ const Header = () => {
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="manage-items">
-              Manage Items
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="add-item">
-              Add Item
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="my-items">
-              My Items
-            </Nav.Link>
+            {userInfo && (
+              <Nav>
+                <Nav.Link as={NavLink} to="manage-items">
+                  Manage Items
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="add-item">
+                  Add Item
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="my-items">
+                  My Items
+                </Nav.Link>
+              </Nav>
+            )}
             <Nav.Link as={NavLink} to="blogs">
               Blogs
             </Nav.Link>
@@ -46,7 +50,9 @@ const Header = () => {
           <Nav>
             {userInfo ? (
               <Nav>
-                <Nav.Link onClick={handleSignOut}>Signout</Nav.Link>
+                <Nav.Link className="text-danger" onClick={handleSignOut}>
+                  Signout
+                </Nav.Link>
               </Nav>
             ) : (
               <Nav>

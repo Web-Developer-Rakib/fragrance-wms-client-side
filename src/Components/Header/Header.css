@@ -5,3 +5,7 @@
 .nav-link {
   font-weight: 700;
 }
+.active {
+  border: 2px solid purple;
+  backdrop-filter: blur(20px);
+}
