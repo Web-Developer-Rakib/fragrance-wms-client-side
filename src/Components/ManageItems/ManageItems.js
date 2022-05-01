@@ -25,11 +25,11 @@ const ManageItems = () => {
         {products.map((product) => (
           <tbody>
             <tr>
-              <td>{product.productName}</td>
-              <td>{product.price}</td>
-              <td>{product.price}</td>
-              <td>{product.quantity}</td>
-              <td>{product.email}</td>
+              <td>{product?.productName}</td>
+              <td>{product?.name}</td>
+              <td>{product?.price}</td>
+              <td>{product?.quantity}</td>
+              <td>{product?.email}</td>
               <td className="d-flex justify-content-around">
                 <Button>V</Button>
                 <Button className="btn-info">U</Button>
