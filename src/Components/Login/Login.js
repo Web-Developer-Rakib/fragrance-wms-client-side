@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase_init";
 import useFirebase from "../../Hooks/useFirebase";
@@ -13,6 +13,9 @@ const Login = () => {
   const { setUserInfo, handleGoogleProvider } = useFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   //Sing in function
   const handleSignIn = () => {
@@ -24,6 +27,7 @@ const Login = () => {
           const user = userCredential.user;
           setUserInfo(user);
           toast.success("Login successful.");
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           const errorMessage = error.message;

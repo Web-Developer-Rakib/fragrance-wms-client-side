@@ -1,15 +1,17 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import "./ManageItems.css";
 
 const ManageItems = () => {
   const { products } = useFetch();
+  const navigate = useNavigate();
   return (
     <div className="manage-items container">
       <div className="manage-items-head">
         <h3>Manage Items</h3>
-        <Button>Add item</Button>
+        <Button onClick={() => navigate("/add-item")}>Add item</Button>
       </div>
       <Table className="mt-5" striped bordered hover>
         <thead>

@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
           <b>Price:</b> {price}$
         </h4>
         <p>
-          <b>Short description:</b> {description}
+          <b>Short description:</b> {description.slice(0, 10)}...
         </p>
         <p>
           <b>Quantity:</b> {quantity}

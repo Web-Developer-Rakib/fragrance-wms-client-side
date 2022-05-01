@@ -9,7 +9,7 @@ const UpdateProduct = () => {
         <div className="product-img">
           <img src={perfume} alt="" width={350} />
         </div>
-        <div className="card-text">
+        <div className="product-info">
           <p>
             <b>Product name:</b> Versace Eros
           </p>
@@ -25,7 +25,7 @@ const UpdateProduct = () => {
           </p>
         </div>
         <div className="update-quantity">
-          <input type="text" placeholder="Please enter the quantity" />
+          <input type="number" placeholder="Please enter the quantity" />
           <button>UPDATE</button>
         </div>
         <button className="delivered-btn">DELIVERED</button>
