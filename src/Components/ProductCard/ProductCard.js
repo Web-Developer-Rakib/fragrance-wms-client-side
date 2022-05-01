@@ -1,32 +1,32 @@
 import React from "react";
-import perfume from "../../Images/perfume.jpg";
 import "./ProductCard.css";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
+  const { _id, name, productName, price, description, quantity, photoURL } =
+    product;
   return (
-    <div className="card">
+    <div className="card" key={_id}>
       <div className="card-img">
-        <img src={perfume} alt="" width={350} />
+        <img src={photoURL} alt="" width={350} />
       </div>
       <div className="card-img">
-        <img src={perfume} alt="" width={350} />
+        <img src={photoURL} alt="" width={350} />
       </div>
       <div className="card-text">
         <p>
-          <b>Product name:</b> Versace Eros
+          <b>Product name:</b> {productName}
         </p>
         <p>
-          <b>Supplier name:</b> Rakibul Hasan
+          <b>Supplier name:</b> {name}
         </p>
         <h4>
-          <b>Price:</b> 150$
+          <b>Price:</b> {price}$
         </h4>
         <p>
-          <b>Short description:</b> Master your world and achieve your goals
-          when you wear Eros by Versace. Introduced in 2012.
+          <b>Short description:</b> {description}
         </p>
         <p>
-          <b>Quantity:</b> 5
+          <b>Quantity:</b> {quantity}
         </p>
       </div>
       <button className="update-btn">UPDATE</button>

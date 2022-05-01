@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
+import useFetch from "../../Hooks/useFetch";
 import "./ManageItems.css";
 
 const ManageItems = () => {
+  const { products } = useFetch();
   return (
     <div className="manage-items container">
       <div className="manage-items-head">
@@ -20,20 +22,22 @@ const ManageItems = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-            <td>Otto</td>
-            <td className="d-flex justify-content-around">
-              <Button>V</Button>
-              <Button className="btn-info">U</Button>
-              <Button className="btn-danger">X</Button>
-            </td>
-          </tr>
-        </tbody>
+        {products.map((product) => (
+          <tbody>
+            <tr>
+              <td>{product.productName}</td>
+              <td>{product.price}</td>
+              <td>{product.price}</td>
+              <td>{product.quantity}</td>
+              <td>{product.email}</td>
+              <td className="d-flex justify-content-around">
+                <Button>V</Button>
+                <Button className="btn-info">U</Button>
+                <Button className="btn-danger">X</Button>
+              </td>
+            </tr>
+          </tbody>
+        ))}
       </Table>
     </div>
   );

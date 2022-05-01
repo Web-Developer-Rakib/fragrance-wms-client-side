@@ -50,7 +50,7 @@ const Header = () => {
           <Nav>
             {userInfo ? (
               <Nav>
-                <Nav.Link className="text-danger" onClick={handleSignOut}>
+                <Nav.Link className="signout-btn" onClick={handleSignOut}>
                   Signout
                 </Nav.Link>
               </Nav>

@@ -9,3 +9,9 @@
 .manage-items-btn:hover {
   background-color: aqua;
 }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px 80px;
+  gap: 30px;
+}

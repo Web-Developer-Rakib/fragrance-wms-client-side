@@ -9,3 +9,15 @@
   border: 2px solid purple;
   backdrop-filter: blur(20px);
 }
+.signout-btn {
+  background: linear-gradient(
+    90deg,
+    rgb(185, 117, 231) 0%,
+    rgb(228, 117, 117) 50%,
+    rgb(235, 184, 114) 100%
+  );
+  border: 2px solid rgb(139, 35, 139);
+  backdrop-filter: blur(20px);
+  display: inline;
+  text-align: center;
+}
