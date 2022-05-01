@@ -12,14 +12,13 @@ import GoogleImg from "../../Images/google.jpg";
 import "./Registration.css";
 
 const Registration = () => {
-  const { setUserInfo, handleGoogleSigup } = useFirebase();
+  const { setUserInfo, handleGoogleProvider } = useFirebase();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
-  const [errorM, setErrorM] = useState("");
 
   // Register function
   const handleRegistration = () => {
@@ -45,14 +44,25 @@ const Registration = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-          setErrorM(errorMessage);
           if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
-            toast.error("This email is already in use.");
+            toast.warn("This email is already in use.");
+          }
+          if (errorMessage === "Firebase: Error (auth/invalid-email).") {
+            toast.warn("Please enter a valied email.");
+          }
+          if (errorMessage === "Firebase: Error (auth/missing-email).") {
+            toast.warn("This email is not registered yet.");
           }
           if (
             errorMessage === "Firebase: Error (auth/network-request-failed)."
           ) {
             toast.error("Please check your internet connection.");
+          }
+          if (
+            errorMessage ===
+            "Firebase: Password should be at least 6 characters (auth/weak-password)."
+          ) {
+            toast.warn("Password should be at least 6 characters.");
           }
         });
     }
@@ -67,34 +77,32 @@ const Registration = () => {
           onChange={(e) => setName(e.target.value)}
           type="text"
           placeholder="Enter your name"
-          required
         />
         <br />
         <input
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="Enter your email"
-          required
         />
         <br />
         <input
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="Enter your password"
-          required
         />
         <br />
         <input
           onChange={(e) => setConfirmPassword(e.target.value)}
           type="password"
           placeholder="Confirm your password"
-          required
         />
         <br />
         <b>
-          Already have an account? <Link to="/login">Login now</Link>
+          Already have an account?{" "}
+          <Link className="mini-btn-rp" to="/login">
+            Login now
+          </Link>
         </b>
-        <br />
         <div className="checkbox">
           <input
             onClick={(e) => setChecked(e.target.checked)}
@@ -106,11 +114,7 @@ const Registration = () => {
         </div>
         <br />
         {checked ? (
-          <button
-            onClick={handleRegistration}
-            type="submit"
-            className="register-btn"
-          >
+          <button onClick={handleRegistration} className="register-btn">
             REGISTER
           </button>
         ) : (
@@ -118,7 +122,7 @@ const Registration = () => {
         )}
         <br />
         {checked ? (
-          <button onClick={handleGoogleSigup} className="register-btn">
+          <button onClick={handleGoogleProvider} className="register-btn">
             <img src={GoogleImg} alt="" />
             REGISTER WITH GOOGLE
           </button>

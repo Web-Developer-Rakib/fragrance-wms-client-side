@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(30px);
+  margin-top: 40px;
 }
 .add-item-form > h3 {
   line-height: 0px;

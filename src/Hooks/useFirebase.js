@@ -12,7 +12,7 @@ const useFirebase = () => {
 
   //Google signup
   const googleProvider = new GoogleAuthProvider();
-  const handleGoogleSigup = () => {
+  const handleGoogleProvider = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -24,14 +24,14 @@ const useFirebase = () => {
       });
   };
 
-  // On state change
+  // On auth state change
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setUserInfo(user);
     });
   }, []);
 
-  return { userInfo, setUserInfo, googleAuthErr, handleGoogleSigup };
+  return { userInfo, setUserInfo, googleAuthErr, handleGoogleProvider };
 };
 
 export default useFirebase;

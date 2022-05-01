@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase_init";
 import useFirebase from "../../Hooks/useFirebase";
@@ -9,10 +9,11 @@ import "./Header.css";
 
 const Header = () => {
   const { userInfo } = useFirebase();
-  console.log(userInfo);
+  const navigate = useNavigate();
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        navigate("/login");
         toast.success("Signout successful.");
       })
       .catch((error) => {

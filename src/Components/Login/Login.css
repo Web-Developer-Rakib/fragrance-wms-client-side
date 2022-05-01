@@ -17,7 +17,10 @@
   justify-content: center;
   backdrop-filter: blur(30px);
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+}
 input {
   border: none;
   width: 300px;
@@ -39,10 +42,19 @@ input:focus {
   color: black;
   font-weight: 700;
   border-radius: 10px;
+  display: inline;
 }
 .login-btn > img {
   height: 30px;
   width: 30px;
   margin-right: 10px;
   border-radius: 50%;
+}
+.mini-btn-lp {
+  cursor: pointer;
+  color: crimson;
+  text-decoration: none;
+}
+.mini-btn-lp:hover {
+  color: blueviolet;
 }
