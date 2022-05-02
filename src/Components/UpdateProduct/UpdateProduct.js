@@ -20,7 +20,7 @@ const UpdateProduct = () => {
     const newQuantityValue = parseInt(quantityValue);
     const calculatedQuantity = currentQuantity + newQuantityValue;
     const updatedQuantity = { calculatedQuantity };
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`http://localhost:5000/update-quantity/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -30,6 +30,27 @@ const UpdateProduct = () => {
       .then((response) => response.json())
       .then(() => {
         toast.success("Quantity is updated.");
+        setIsLoad(!isLoad);
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+  //Delivery function
+  const handleDelivery = () => {
+    const currentQuantity = parseInt(product.quantity);
+    const deliveredOne = currentQuantity - 1;
+    const updatedQuantity = { deliveredOne };
+    fetch(`http://localhost:5000/delivered/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        toast.success("1 item is delivered.");
         setIsLoad(!isLoad);
       })
       .catch((error) => {
@@ -64,7 +85,9 @@ const UpdateProduct = () => {
           />
           <button onClick={handleUpdateQuantity}>UPDATE</button>
         </div>
-        <button className="delivered-btn">DELIVERED</button>
+        <button onClick={handleDelivery} className="delivered-btn">
+          DELIVERED
+        </button>
       </div>
     </div>
   );
