@@ -1,18 +1,20 @@
 import React from "react";
-import perfume from "../../Images/perfume.jpg";
 import "./UpdateProduct.css";
 
 const UpdateProduct = () => {
   return (
     <div className="update-page">
       <div className="product">
-        <div className="product-img">
+        {/* <div className="product-img">
           <img src={perfume} alt="" width={350} />
-        </div>
+        </div> */}
         <div className="product-info">
           <p>
             <b>Product name:</b> Versace Eros
           </p>
+          <h5>
+            <b>Price:</b> 340$
+          </h5>
           <p>
             <b>Supplier name:</b> Rakibul Hasan
           </p>
