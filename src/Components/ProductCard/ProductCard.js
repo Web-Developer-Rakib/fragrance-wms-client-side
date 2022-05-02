@@ -1,9 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.css";
 
 const ProductCard = ({ product }) => {
   const { _id, name, productName, price, description, quantity, photoURL } =
     product;
+  const navigate = useNavigate();
+  const handleUpdateProduct = (id) => {
+    navigate(`/update-product/${id}`);
+  };
   return (
     <div className="card" key={_id}>
       <div className="card-img">
@@ -29,7 +34,9 @@ const ProductCard = ({ product }) => {
           <b>Quantity:</b> {quantity}
         </p>
       </div>
-      <button className="update-btn">UPDATE</button>
+      <button onClick={() => handleUpdateProduct(_id)} className="update-btn">
+        UPDATE
+      </button>
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import Banner from "../Banner/Banner";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
   const { products } = useFetch();
   const productsSlice = products.slice(0, 6);
   return (
@@ -18,7 +20,12 @@ const Home = () => {
           ))}
         </div>
         <div className="d-flex justify-content-center my-4">
-          <button className="manage-items-btn">MANAGE ITEMS</button>
+          <button
+            onClick={() => navigate("/manage-items")}
+            className="manage-items-btn"
+          >
+            MANAGE ITEMS
+          </button>
         </div>
       </section>
     </div>
