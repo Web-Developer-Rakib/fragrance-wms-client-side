@@ -28,7 +28,7 @@ const MyItems = () => {
                   <td>{product?.productName}</td>
                   <td>{product?.email}</td>
                   <td>{product?.quantity}</td>
-                  <td>{product?.priice}</td>
+                  <td>{product?.price}</td>
                   <td className="d-flex justify-content-around">
                     <Button>V</Button>
                     <Button className="btn-info">U</Button>

@@ -20,21 +20,25 @@ const UpdateProduct = () => {
     const newQuantityValue = parseInt(quantityValue);
     const calculatedQuantity = currentQuantity + newQuantityValue;
     const updatedQuantity = { calculatedQuantity };
-    fetch(`http://localhost:5000/update-quantity/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedQuantity),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        toast.success("Quantity is updated.");
-        setIsLoad(!isLoad);
+    if (quantityValue === undefined || quantityValue === "") {
+      toast.warn("Please enter a quantity.");
+    } else {
+      fetch(`http://localhost:5000/update-quantity/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedQuantity),
       })
-      .catch((error) => {
-        toast.error(error);
-      });
+        .then((response) => response.json())
+        .then(() => {
+          toast.success("Quantity is updated.");
+          setIsLoad(!isLoad);
+        })
+        .catch((error) => {
+          toast.error(error);
+        });
+    }
   };
   //Delivery function
   const handleDelivery = () => {
