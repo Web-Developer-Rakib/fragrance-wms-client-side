@@ -1,4 +1,4 @@
-import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Table } from "react-bootstrap";
@@ -36,7 +36,7 @@ const ManageItems = () => {
               <td>{product?.email}</td>
               <td className="d-flex justify-content-around">
                 <Button className="btn-info">
-                  <FontAwesomeIcon icon={faEye} />
+                  <FontAwesomeIcon icon={faPencil} />
                 </Button>
                 <Button className="btn-danger">
                   <FontAwesomeIcon

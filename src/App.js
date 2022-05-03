@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Blogs from "./Blogs/Blogs";
 import AddItem from "./Components/AddItem/AddItem";
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
@@ -58,6 +59,7 @@ function App() {
         <Route path="thank-you" element={<ThankYou></ThankYou>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
