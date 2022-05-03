@@ -57,7 +57,7 @@ const UpdateProduct = () => {
   };
   return (
     <div className="update-page">
-      <div className="product">
+      <div className="product" key={product._id}>
         <div className="product-info">
           <p>
             <b>Product name:</b> {product.productName}
@@ -67,6 +67,9 @@ const UpdateProduct = () => {
           </h5>
           <p>
             <b>Supplier name:</b> {product.name}
+          </p>
+          <p>
+            <b>Supplier email:</b> {product.email}
           </p>
           <p>
             <b>Short description:</b> {product.description}

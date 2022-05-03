@@ -2,12 +2,12 @@ import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Table } from "react-bootstrap";
-import useAllProducts from "../../Hooks/useAllProducts";
+import useDelete from "../../Hooks/useDelete";
 import useFirebase from "../../Hooks/useFirebase";
 import "./MyItems.css";
 
 const MyItems = () => {
-  const { products } = useAllProducts();
+  const { products, handleDelete } = useDelete();
   const { userInfo } = useFirebase();
   return (
     <div className="my-items container">
@@ -25,7 +25,7 @@ const MyItems = () => {
         {products.map(
           (product) =>
             product?.email === userInfo?.email && (
-              <tbody>
+              <tbody key={product._id}>
                 <tr>
                   <td>{product?.productName}</td>
                   <td>{product?.email}</td>
@@ -36,7 +36,10 @@ const MyItems = () => {
                       <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
                     </Button>
                     <Button className="btn-danger">
-                      <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                      <FontAwesomeIcon
+                        onClick={() => handleDelete(product._id)}
+                        icon={faTrash}
+                      ></FontAwesomeIcon>
                     </Button>
                   </td>
                 </tr>

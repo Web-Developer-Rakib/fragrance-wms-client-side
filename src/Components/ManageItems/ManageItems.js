@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import useAllProducts from "../../Hooks/useAllProducts";
+import useDelete from "../../Hooks/useDelete";
 import "./ManageItems.css";
 
 const ManageItems = () => {
-  const { products } = useAllProducts();
+  const { products, handleDelete } = useDelete();
   const navigate = useNavigate();
   return (
     <div className="manage-items container">
@@ -27,7 +27,7 @@ const ManageItems = () => {
           </tr>
         </thead>
         {products.map((product) => (
-          <tbody>
+          <tbody key={product._id}>
             <tr>
               <td>{product?.productName}</td>
               <td>{product?.name}</td>
@@ -39,7 +39,10 @@ const ManageItems = () => {
                   <FontAwesomeIcon icon={faEye} />
                 </Button>
                 <Button className="btn-danger">
-                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    onClick={() => handleDelete(product._id)}
+                    icon={faTrash}
+                  ></FontAwesomeIcon>
                 </Button>
               </td>
             </tr>
