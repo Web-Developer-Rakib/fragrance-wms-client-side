@@ -60,22 +60,22 @@ const UpdateProduct = () => {
       <div className="product">
         <div className="product-info" key={product._id}>
           <p>
-            <b>Product name:</b> {product.productName}
+            <b>Product name:</b> {product?.productName}
           </p>
           <h5>
-            <b>Price:</b> {product.price}$
+            <b>Price:</b> {product?.price}$
           </h5>
           <p>
-            <b>Supplier name:</b> {product.name}
+            <b>Supplier name:</b> {product?.name}
           </p>
           <p>
-            <b>Supplier email:</b> {product.email}
+            <b>Supplier email:</b> {product?.email}
           </p>
           <p>
-            <b>Short description:</b> {product.description}
+            <b>Short description:</b> {product?.description}
           </p>
           <p>
-            <b>Quantity:</b> {product.quantity}
+            <b>Quantity:</b> {product?.quantity}
           </p>
         </div>
         <div className="update-quantity">

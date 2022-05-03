@@ -9,6 +9,9 @@ import "./ManageItems.css";
 const ManageItems = () => {
   const { products, handleDelete } = useDelete();
   const navigate = useNavigate();
+  const handleUpdateProduct = (id) => {
+    navigate(`/update-product/${id}`);
+  };
   return (
     <div className="manage-items container">
       <div className="manage-items-head">
@@ -18,24 +21,35 @@ const ManageItems = () => {
       <Table className="mt-5" striped bordered hover>
         <thead>
           <tr>
+            <th>Product Image</th>
             <th>Product name</th>
             <th>Supplier name</th>
+            <th>Supplier email</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Supplier email</th>
             <th>Action</th>
           </tr>
         </thead>
         {products.map((product) => (
           <tbody key={product._id}>
             <tr>
+              <td>
+                <img
+                  className="manage-page-photo"
+                  src={product?.photoURL}
+                  alt=""
+                />
+              </td>
               <td>{product?.productName}</td>
               <td>{product?.name}</td>
+              <td>{product?.email}</td>
               <td>{product?.price}</td>
               <td>{product?.quantity}</td>
-              <td>{product?.email}</td>
               <td className="d-flex justify-content-around">
-                <Button className="btn-info">
+                <Button
+                  onClick={() => handleUpdateProduct(product?._id)}
+                  className="btn-info"
+                >
                   <FontAwesomeIcon icon={faPencil} />
                 </Button>
                 <Button className="btn-danger">

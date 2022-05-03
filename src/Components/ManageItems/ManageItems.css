@@ -6,3 +6,13 @@
   display: flex;
   justify-content: space-between;
 }
+.manage-page-photo {
+  width: 30px;
+  height: 30px;
+  transition: 0.75s ease;
+}
+.manage-page-photo:hover {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}

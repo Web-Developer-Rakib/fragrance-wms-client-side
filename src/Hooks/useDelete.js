@@ -14,7 +14,7 @@ const useDelete = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.deletedCount > 0) {
+        if (data.deletedCount === 1) {
           toast.success("Product deleted successfuly.");
           setIsload(!isLoad);
         } else {
