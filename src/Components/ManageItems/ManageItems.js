@@ -1,11 +1,13 @@
+import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../../Hooks/useFetch";
+import useAllProducts from "../../Hooks/useAllProducts";
 import "./ManageItems.css";
 
 const ManageItems = () => {
-  const { products } = useFetch();
+  const { products } = useAllProducts();
   const navigate = useNavigate();
   return (
     <div className="manage-items container">
@@ -33,9 +35,12 @@ const ManageItems = () => {
               <td>{product?.quantity}</td>
               <td>{product?.email}</td>
               <td className="d-flex justify-content-around">
-                <Button>V</Button>
-                <Button className="btn-info">U</Button>
-                <Button className="btn-danger">X</Button>
+                <Button className="btn-info">
+                  <FontAwesomeIcon icon={faEye} />
+                </Button>
+                <Button className="btn-danger">
+                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                </Button>
               </td>
             </tr>
           </tbody>

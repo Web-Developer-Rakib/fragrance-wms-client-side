@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
+import useSingleProduct from "../../Hooks/useSingleProduct";
 import "./UpdateProduct.css";
 
 const UpdateProduct = () => {
-  const [product, setProduct] = useState({});
   const [quantityValue, setQuantityValue] = useState();
-  const { id } = useParams();
-  const [isLoad, setIsLoad] = useState(false);
-  useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, [id, isLoad]);
 
+  const [isLoad, setIsLoad] = useState(false);
+  const { product, id } = useSingleProduct(isLoad);
   // Update quantity function
   const handleUpdateQuantity = () => {
     const currentQuantity = parseInt(product.quantity);

@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../../Hooks/useFetch";
+import useAllProducts from "../../Hooks/useAllProducts";
 import Banner from "../Banner/Banner";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { products } = useFetch();
+  const { products } = useAllProducts();
   const productsSlice = products.slice(0, 6);
   return (
     <div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetch = () => {
+const useAllProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -10,4 +10,4 @@ const useFetch = () => {
   return { products };
 };
 
-export default useFetch;
+export default useAllProducts;
