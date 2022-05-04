@@ -4,6 +4,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase_init";
@@ -13,6 +14,7 @@ import "./Registration.css";
 
 const Registration = () => {
   const { setUserInfo, handleGoogleProvider } = useFirebase();
+  const [loading, setLoading] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +34,13 @@ const Registration = () => {
     ) {
       toast.warn("Please fill up all fields.");
     } else {
+      setLoading(
+        <div>
+          <Spinner animation="grow" variant="success" />
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="warning" />
+        </div>
+      );
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           updateProfile(auth.currentUser, {
@@ -48,10 +57,7 @@ const Registration = () => {
             toast.warn("This email is already in use.");
           }
           if (errorMessage === "Firebase: Error (auth/invalid-email).") {
-            toast.warn("Please enter a valied email.");
-          }
-          if (errorMessage === "Firebase: Error (auth/missing-email).") {
-            toast.warn("This email is not registered yet.");
+            toast.warn("Please enter a valid email.");
           }
           if (
             errorMessage === "Firebase: Error (auth/network-request-failed)."
@@ -64,6 +70,9 @@ const Registration = () => {
           ) {
             toast.warn("Password should be at least 6 characters.");
           }
+        })
+        .finally(() => {
+          setLoading("");
         });
     }
   };
@@ -72,6 +81,7 @@ const Registration = () => {
     <div className="register-page">
       <div className="register-form">
         <h3>REGISTER</h3>
+        {loading}
         <br />
         <input
           onChange={(e) => setName(e.target.value)}

@@ -4,11 +4,11 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import auth from "../firebase_init";
 
 const useFirebase = () => {
   const [userInfo, setUserInfo] = useState({});
-  const [googleAuthErr, setGoogleAuthErr] = useState("");
 
   //Google signup
   const googleProvider = new GoogleAuthProvider();
@@ -20,7 +20,14 @@ const useFirebase = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setGoogleAuthErr(errorMessage);
+        if (errorMessage === "Firebase: Error (auth/popup-closed-by-user).") {
+          toast.warn("Popup closed by user.");
+        }
+        if (
+          errorMessage === "Firebase: Error (auth/cancelled-popup-request)."
+        ) {
+          toast.error("No internet connection.");
+        }
       });
   };
 
@@ -31,7 +38,7 @@ const useFirebase = () => {
     });
   }, []);
 
-  return { userInfo, setUserInfo, googleAuthErr, handleGoogleProvider };
+  return { userInfo, setUserInfo, handleGoogleProvider };
 };
 
 export default useFirebase;

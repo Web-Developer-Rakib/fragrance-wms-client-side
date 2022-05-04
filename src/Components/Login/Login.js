@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import React, { useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase_init";
@@ -11,6 +12,7 @@ import GoogleImg from "../../Images/google.jpg";
 import "./Login.css";
 const Login = () => {
   const { setUserInfo, handleGoogleProvider } = useFirebase();
+  const [loading, setLoading] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const location = useLocation();
@@ -22,6 +24,13 @@ const Login = () => {
     if (email === "" || password === "") {
       toast.warn("Please fill up all fields.");
     } else {
+      setLoading(
+        <div>
+          <Spinner animation="grow" variant="success" />
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="warning" />
+        </div>
+      );
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
@@ -32,15 +41,26 @@ const Login = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-
           if (errorMessage === "Firebase: Error (auth/wrong-password).") {
-            toast.warn("Wrong Username or Password.");
+            toast.warn("Wrong password.");
           }
           if (
             errorMessage === "Firebase: Error (auth/network-request-failed)."
           ) {
             toast.error("Please check your internet connection.");
           }
+          if (errorMessage === "Firebase: Error (auth/missing-email).") {
+            toast.warn("Please enter your email.");
+          }
+          if (errorMessage === "Firebase: Error (auth/user-not-found).") {
+            toast.warn("This email is not registered yet.");
+          }
+          if (errorMessage === "Firebase: Error (auth/invalid-email).") {
+            toast.warn("Please enter a valid email.");
+          }
+        })
+        .finally(() => {
+          setLoading("");
         });
     }
   };
@@ -70,7 +90,6 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         if (errorMessage === "Firebase: Error (auth/missing-email).") {
           toast.warn("Please enter your email.");
         }
@@ -78,7 +97,7 @@ const Login = () => {
           toast.warn("This email is not registered yet.");
         }
         if (errorMessage === "Firebase: Error (auth/invalid-email).") {
-          toast.warn("Please enter a valied email.");
+          toast.warn("Please enter a valid email.");
         }
         if (errorMessage === "Firebase: Error (auth/network-request-failed).") {
           toast.error("Please check your internet connection.");
@@ -89,6 +108,7 @@ const Login = () => {
     <div className="login-page">
       <div className="login-form">
         <h3>LOGIN</h3>
+        {loading}
         <br />
         <input
           onChange={(e) => setEmail(e.target.value)}
