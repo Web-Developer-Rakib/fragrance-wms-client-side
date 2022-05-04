@@ -27,6 +27,7 @@ const Login = () => {
           const user = userCredential.user;
           setUserInfo(user);
           toast.success("Login successful.");
+          handleJWT();
           navigate(from, { replace: true });
         })
         .catch((error) => {
@@ -42,6 +43,23 @@ const Login = () => {
           }
         });
     }
+  };
+  //JWT post function
+  const handleJWT = () => {
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      body: email,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("accessToken", data.accessToken);
+      })
+      .catch(() => {
+        toast.error("Invalid access token.");
+      });
   };
 
   //Password reset function

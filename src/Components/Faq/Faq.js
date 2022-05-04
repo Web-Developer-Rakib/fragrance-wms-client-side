@@ -20,7 +20,7 @@ const Faq = () => {
           page. It will take you to the product upload page as well.
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="1">
+      <Accordion.Item eventKey="2">
         <Accordion.Header>
           How to update product quantity or Deliver product?
         </Accordion.Header>
@@ -32,6 +32,13 @@ const Faq = () => {
           product quantity. Also you can see a delivered button in the update
           page. Each click on the delivered button will deliver 1 product.
           Authentication is required to access the update page.
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header>How to delete a product?</Accordion.Header>
+        <Accordion.Body>
+          You can see a trash icon in action column of the Manage items/My items
+          page. Each button will click will delete a spacific product.
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>

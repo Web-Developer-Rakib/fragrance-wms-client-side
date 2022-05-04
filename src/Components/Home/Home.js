@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useAllProducts from "../../Hooks/useAllProducts";
 import Banner from "../Banner/Banner";
+import Faq from "../Faq/Faq";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Home.css";
 
@@ -27,6 +28,10 @@ const Home = () => {
             MANAGE ITEMS
           </button>
         </div>
+      </section>
+      <section className="container">
+        <h2 className="text-center mb-3">F.A.Q</h2>
+        <Faq></Faq>
       </section>
     </div>
   );
