@@ -8,7 +8,7 @@ const useDelete = () => {
 
   //Delete data
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://mighty-atoll-14871.herokuapp.com/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

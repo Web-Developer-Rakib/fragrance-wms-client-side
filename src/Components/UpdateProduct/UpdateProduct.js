@@ -17,7 +17,7 @@ const UpdateProduct = () => {
     if (quantityValue === undefined || quantityValue === "") {
       toast.warn("Please enter a quantity.");
     } else {
-      fetch(`http://localhost:5000/update-quantity/${id}`, {
+      fetch(`https://mighty-atoll-14871.herokuapp.com/update-quantity/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const UpdateProduct = () => {
     const currentQuantity = parseInt(product.quantity);
     const deliveredOne = currentQuantity - 1;
     const updatedQuantity = { deliveredOne };
-    fetch(`http://localhost:5000/delivered/${id}`, {
+    fetch(`https://mighty-atoll-14871.herokuapp.com/delivered/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

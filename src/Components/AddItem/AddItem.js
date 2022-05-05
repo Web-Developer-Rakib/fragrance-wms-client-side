@@ -35,7 +35,7 @@ const AddItem = () => {
     ) {
       toast.warn("Please fill up all fields.");
     } else {
-      fetch("http://localhost:5000/add-product", {
+      fetch("https://mighty-atoll-14871.herokuapp.com/add-product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

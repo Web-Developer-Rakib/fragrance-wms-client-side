@@ -66,7 +66,7 @@ const Login = () => {
   };
   //JWT post function
   const handleJWT = () => {
-    fetch("http://localhost:5000/login", {
+    fetch("https://mighty-atoll-14871.herokuapp.com/login", {
       method: "POST",
       body: email,
       headers: {

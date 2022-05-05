@@ -5,7 +5,7 @@ const useSingleProduct = (isLoad) => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`https://mighty-atoll-14871.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id, isLoad]);
