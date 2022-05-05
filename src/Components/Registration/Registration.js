@@ -42,8 +42,8 @@ const Registration = () => {
         </div>
       );
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          updateProfile(auth.currentUser, {
+        .then(async (userCredential) => {
+          await updateProfile(auth.currentUser, {
             displayName: name,
           });
           sendEmailVerification(auth.currentUser);
