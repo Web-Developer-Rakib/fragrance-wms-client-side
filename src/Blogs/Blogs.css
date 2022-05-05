@@ -1,0 +1,12 @@
+.qna-section {
+  margin-top: 70px;
+}
+.qna {
+  border: 2px solid mediumaquamarine;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.question {
+  margin-bottom: 20px;
+}

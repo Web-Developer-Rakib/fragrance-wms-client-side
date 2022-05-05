@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../Images/thank-you-page.jpg");
+  background-image: url("../../Images/thank-you-page-bg.jpg");
   background-size: cover;
   height: 100vh;
 }

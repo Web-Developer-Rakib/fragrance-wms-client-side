@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a ware house management system (WMS) app. With the help of this app, you can add, manage, update product quantity and delete products.
+This is a ware house management system (WMS) web app. With the help of this web app, you can add, manage, update product quantity and delete products.
 
 ## Technologies of this app
 
