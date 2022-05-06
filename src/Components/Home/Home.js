@@ -34,9 +34,7 @@ const Home = () => {
       </section>
       <section className="container my-5">
         <h2 className="text-center my-5">Stock's chart</h2>
-        <div className="chart-holder">
-          <Chart></Chart>
-        </div>
+        <Chart></Chart>
       </section>
       <section className="container mb-5">
         <h2 className="text-center mb-3">F.A.Q</h2>

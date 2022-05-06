@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
           <b>Price:</b> {price}$
         </h4>
         <p>
-          <b>Short description:</b> {description.slice(0, 10)}...
+          <b>Short description:</b> {description.slice(0, 150)}...
         </p>
         <p>
           <b>Quantity:</b> {quantity}
