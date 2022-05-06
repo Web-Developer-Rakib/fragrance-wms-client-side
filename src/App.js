@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import Blogs from "./Blogs/Blogs";
 import AddItem from "./Components/AddItem/AddItem";
+import Blogs from "./Components/Blogs/Blogs";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
