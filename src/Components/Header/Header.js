@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase_init";
 import useFirebase from "../../Hooks/useFirebase";
@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="light" className="fixed-top">
       <Container>
-        <Navbar.Brand>Fragrance WMS</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Fragrance WMS
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
