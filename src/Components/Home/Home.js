@@ -13,7 +13,9 @@ const Home = () => {
   const productsSlice = products.slice(0, 6);
   return (
     <div>
-      <Banner></Banner>
+      <section className="banner">
+        <Banner></Banner>
+      </section>
       <section className="my-5">
         <h2 className="my-5 text-center">Inventory</h2>
         <div className="products-grid">
@@ -32,9 +34,11 @@ const Home = () => {
       </section>
       <section className="container my-5">
         <h2 className="text-center my-5">Stock's chart</h2>
-        <Chart></Chart>
+        <div className="chart-holder">
+          <Chart></Chart>
+        </div>
       </section>
-      <section className="container">
+      <section className="container mb-5">
         <h2 className="text-center mb-3">F.A.Q</h2>
         <Faq></Faq>
       </section>

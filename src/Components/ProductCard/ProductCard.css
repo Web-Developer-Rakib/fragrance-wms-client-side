@@ -34,3 +34,14 @@
 .update-btn:hover {
   background-color: aquamarine;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 350px;
+  }
+  .card-text {
+    width: 347px;
+  }
+  .update-btn {
+    width: 340px;
+  }
+}
