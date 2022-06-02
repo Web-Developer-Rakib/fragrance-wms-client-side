@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase_init";
 import useFirebase from "../../Hooks/useFirebase";
+import Logo from "../../Images/logo.png";
 import "./Header.css";
 
 const Header = () => {
@@ -24,7 +25,7 @@ const Header = () => {
     <Navbar collapseOnSelect expand="lg" variant="light" className="fixed-top">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Fragrance WMS
+          <img src={Logo} alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
