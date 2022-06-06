@@ -4,80 +4,43 @@ import "./Blogs.css";
 const Blogs = () => {
   return (
     <div className="container qna-section">
-      <h1 className="text-center my-4">Question and Answer</h1>
+      <h1 className="text-center my-4">Blogs</h1>
       <div className="qna">
-        <h3 className="question">
-          <b>Question: </b>Difference between javascript and nodejs.
-        </h3>
+        <h3 className="question">Which perfume lasts the longest?</h3>
         <p>
-          <b>Answer: </b>
-          <br />
-          <u>
-            <i>Javascript: </i>
-          </u>
-          It is a scripting language, but JS is basically the ECMA script’s
-          updated version. Javascript is mainly utilised in making the HTML web
-          pages more dynamic and interactive. It is a high-level language, and
-          it makes use of the Oops concept. Yet, it is based primarily on the
-          concept of prototype inheritance. <br />
-          <br />
-          <u>
-            <i>Node JS: </i>
-          </u>
-          It is a JS runtime environment that lets Javascript to be run on the
-          server-side. It is cross-platform, and it thus allows the JS code to
-          run outside any browser easily. There are various modules in NodeJS,
-          and it is mainly utilised in the process of web development.
+          Oakmoss and Vetiver are one of the most long-lasting base notes. These
+          fragrances slowly evaporate in comparison to others. So you will smell
+          them even many hours after the fading of heart and top notes. They
+          also keep the blend of the whole perfume.
         </p>
       </div>
       <div className="qna">
-        <h3 className="question">
-          <b>Question: </b>When should you use nodejs and when should you use
-          mongodb?
-        </h3>
+        <h3 className="question">What smell do guys like on a girl?</h3>
         <p>
-          <b>Answer: </b>We should use Node.js, When we have to create server
-          side. And, We should use mongoBD, When we need to store data in
-          database.
+          Boys love when girls around them wear fruity perfumes with citrusy
+          aroma especially oranges and lemons. They have an enchanting effect on
+          one's mood with a rare kind of freshness. The moment guys take a whiff
+          of this perfume they immediately feel relaxed.
         </p>
       </div>
       <div className="qna">
-        <h3 className="question">
-          <b>Question: </b>Differences between sql and nosql databases.
-        </h3>
+        <h3 className="question">How do I find my signature scent?</h3>
         <p>
-          <b>Answer: </b>
-          <br />
-          <u>
-            {" "}
-            <i>SQL: </i>
-          </u>
-          Structured Query Language or SQL is a table-based relational database.
-          By applying the SQL programming language, users can now search,
-          insert, modify and delete data from the database records. This in no
-          way limits the use of SQL. The services it supports are also not
-          limited to the optimization or administration of the database. <br />
-          <br />
-          <u>
-            <i>NoSQL: </i>
-          </u>
-          NoSQL is a non-relational database or DMS without any fixed schema,
-          while it is easy to scale. Distributed data stores that require a
-          large quantity of data storage needs have a call for NoSQL. Big Data
-          and real-time web apps make use of NoSQL.
+          Giving yourself time to really understand if you are going to enjoy
+          the fragrance is the key to finding your signature scent. “Allow
+          yourself time to really experience the whole fragrance, from the top
+          notes that you immediately smell, right through to the deeper, longer
+          lasting base notes.
         </p>
       </div>
       <div className="qna">
-        <h3 className="question">
-          <b>Question: </b>What is the purpose of jwt and how does it work?
-        </h3>
+        <h3 className="question">Do perfumes expire?</h3>
         <p>
-          <b>Answer: </b>The purpose of JWT is to secure API. Instead of storing
-          information on the server after authentication, JWT creates a JSON web
-          token and encodes, sterilizes, and adds a signature with a secret key
-          that cannot be tampered with. This key is then sent back to the
-          browser. Each time a request is sent, it verifies and sends the
-          response back.
+          Many perfumes don't have a set expiry date and can last anywhere
+          between 1-10 years. However, three to five years is often the average
+          shelf life of a fragrance and most of Shay & Blue's fragrances will
+          still perform for the length of time. According to experts, perfumes
+          with heavier base notes will last the longest.
         </p>
       </div>
     </div>
